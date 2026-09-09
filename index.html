@@ -1,0 +1,479 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<title>Garage Workshop Rebuild</title>
+<style>
+  :root {
+    --bg: #f6f4ef;
+    --card: #ffffff;
+    --ink: #1f2a30;
+    --muted: #5b6770;
+    --line: #e2ded6;
+    --accent: #0e6e66;
+    --accent-ink: #ffffff;
+    --amber-bg: #fff4d6;
+    --amber-line: #e6b64a;
+    --amber-ink: #5a3d00;
+    --teal-bg: #e3f2f0;
+    --done: #8a949b;
+    --chip: #ebe7df;
+    --shadow: 0 1px 2px rgba(0,0,0,.06), 0 4px 14px rgba(0,0,0,.05);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #15191c; --card: #1e2428; --ink: #e8e6e1; --muted: #a2adb4; --line: #313a40;
+      --accent: #4fc0b4; --accent-ink: #0d1a18; --amber-bg: #3a2f14; --amber-line: #b98a2a; --amber-ink: #f3dfa6;
+      --teal-bg: #1b3230; --done: #6f7a81; --chip: #2a3237; --shadow: none;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #15191c; --card: #1e2428; --ink: #e8e6e1; --muted: #a2adb4; --line: #313a40;
+    --accent: #4fc0b4; --accent-ink: #0d1a18; --amber-bg: #3a2f14; --amber-line: #b98a2a; --amber-ink: #f3dfa6;
+    --teal-bg: #1b3230; --done: #6f7a81; --chip: #2a3237; --shadow: none;
+  }
+  * { box-sizing: border-box; }
+  body { background: var(--bg); color: var(--ink); font: 16px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; margin: 0; -webkit-text-size-adjust: 100%; }
+  main { max-width: 760px; margin: 0 auto; padding: 16px 14px 72px; }
+  header.hero { padding: 28px 0 8px; }
+  header.hero h1 { font-size: 30px; line-height: 1.15; margin: 0 0 6px; letter-spacing: -.01em; }
+  header.hero p.sub { color: var(--muted); margin: 0; font-size: 16px; }
+  .meta { color: var(--muted); font-size: 13px; margin-top: 10px; }
+  nav.chips { display: flex; gap: 8px; overflow-x: auto; padding: 14px 0 6px; scrollbar-width: none; -webkit-overflow-scrolling: touch; }
+  nav.chips::-webkit-scrollbar { display: none; }
+  nav.chips a { flex: 0 0 auto; background: var(--chip); color: var(--ink); text-decoration: none; padding: 8px 12px; border-radius: 999px; font-size: 14px; white-space: nowrap; }
+  nav.chips a:hover { background: var(--accent); color: var(--accent-ink); }
+  section { margin-top: 28px; }
+  h2 { font-size: 22px; margin: 0 0 4px; letter-spacing: -.01em; }
+  h3 { font-size: 17px; margin: 22px 0 8px; }
+  p.lead { color: var(--muted); margin: 0 0 14px; }
+  .card { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 16px; box-shadow: var(--shadow); margin-top: 14px; }
+  .card h3 { margin-top: 0; }
+  .grid2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; }
+  .stat { background: var(--teal-bg); border-radius: 10px; padding: 12px; }
+  .stat .k { font-size: 12px; color: var(--muted); text-transform: uppercase; letter-spacing: .06em; }
+  .stat .v { font-size: 20px; font-weight: 700; margin-top: 2px; }
+  .stat .n { font-size: 12px; color: var(--muted); }
+  .callout { background: var(--amber-bg); border-left: 4px solid var(--amber-line); color: var(--amber-ink); padding: 12px 14px; border-radius: 10px; margin: 14px 0; }
+  .callout strong { color: inherit; }
+  .who { display: inline-block; font-size: 12px; padding: 2px 8px; border-radius: 999px; background: var(--chip); color: var(--muted); margin-left: 6px; vertical-align: middle; }
+  ul.tasks { list-style: none; padding: 0; margin: 8px 0 0; }
+  ul.tasks li { display: flex; gap: 12px; align-items: flex-start; padding: 10px 0; border-top: 1px solid var(--line); }
+  ul.tasks li:first-child { border-top: 0; }
+  ul.tasks input[type=checkbox] { width: 22px; height: 22px; margin: 2px 0 0; flex: 0 0 22px; accent-color: var(--accent); }
+  ul.tasks label { flex: 1; cursor: pointer; }
+  ul.tasks li.done label { color: var(--done); text-decoration: line-through; }
+  ul.tasks small { display: block; color: var(--muted); font-size: 13px; text-decoration: none; }
+  .progress { font-size: 13px; color: var(--muted); margin-left: 8px; font-weight: 400; }
+  .tablewrap { overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 10px 0; border: 1px solid var(--line); border-radius: 10px; }
+  table { border-collapse: collapse; width: 100%; min-width: 520px; font-size: 14px; background: var(--card); }
+  th, td { text-align: left; padding: 9px 10px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  th { font-size: 12px; text-transform: uppercase; letter-spacing: .05em; color: var(--muted); background: var(--chip); }
+  tr:last-child td { border-bottom: 0; }
+  td.num, th.num { text-align: right; white-space: nowrap; }
+  tr.total td { font-weight: 700; border-top: 2px solid var(--line); }
+  td input[type=checkbox] { width: 20px; height: 20px; accent-color: var(--accent); margin: 0; }
+  tr.done td { color: var(--done); }
+  tr.done td a { color: var(--done); }
+  a { color: var(--accent); }
+  .order-head { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; flex-wrap: wrap; }
+  .order-head .total { font-weight: 700; font-size: 18px; white-space: nowrap; }
+  .small { font-size: 13px; color: var(--muted); }
+  .btn { background: var(--chip); color: var(--ink); border: 1px solid var(--line); border-radius: 8px; padding: 6px 10px; font-size: 13px; cursor: pointer; }
+  footer { margin-top: 40px; color: var(--muted); font-size: 13px; border-top: 1px solid var(--line); padding-top: 14px; }
+  ol.phases { padding-left: 0; list-style: none; counter-reset: ph; margin: 0; }
+  ol.phases > li { position: relative; padding-left: 44px; margin-top: 14px; }
+  ol.phases > li::before { counter-increment: ph; content: counter(ph); position: absolute; left: 0; top: 2px; width: 30px; height: 30px; border-radius: 50%; background: var(--accent); color: var(--accent-ink); font-weight: 700; display: grid; place-items: center; font-size: 14px; }
+  ol.phases > li.zero::before { content: "0"; }
+  ol.phases h3 { margin: 0 0 2px; }
+  ol.phases .when { color: var(--muted); font-size: 13px; }
+  @media print {
+    body { background: #fff; color: #000; }
+    nav.chips, .btn, .noprint { display: none !important; }
+    .card { box-shadow: none; break-inside: avoid; }
+    a { color: inherit; text-decoration: none; }
+  }
+</style>
+</head>
+<body>
+
+<main>
+  <header class="hero">
+    <h1>Garage Workshop Rebuild</h1>
+    <p class="sub">Turning the leak-damaged bathroom in the garage into a workshop with a cold-water sink. What needs doing, in what order, and everything to buy.</p>
+    <div class="meta">Room 4.5 m × 2.5 m · block walls · sloping garage slab · delivery to Wimborne, Dorset · prices checked 9 Sep 2026, inc VAT</div>
+  </header>
+
+  <nav class="chips" aria-label="Sections">
+    <a href="#summary">Summary</a>
+    <a href="#before">Before we start</a>
+    <a href="#plan">The plan</a>
+    <a href="#shopping">Shopping lists</a>
+    <a href="#trades">Trades to book</a>
+    <a href="#build">Build notes</a>
+    <a href="#decisions">Decisions</a>
+  </nav>
+
+  <section id="summary">
+    <h2>Summary</h2>
+    <p class="lead">A suspended timber floor on packers over a damp-proof membrane, three block walls battened, insulated and boarded, the existing ceiling kept and patched, new spotlights, an extractor fan, sockets on a new circuit, a plaster skim throughout, and a cold-water sink.</p>
+    <div class="card">
+      <div class="grid2">
+        <div class="stat"><div class="k">Floor</div><div class="v">£689</div><div class="n">Orders 1 and 2</div></div>
+        <div class="stat"><div class="k">Walls</div><div class="v">£700</div><div class="n">Orders 3 and 4</div></div>
+        <div class="stat"><div class="k">Lights and fan</div><div class="v">£78</div><div class="n">Order 5</div></div>
+        <div class="stat"><div class="k">Sink</div><div class="v">£241</div><div class="n">Order 6</div></div>
+        <div class="stat"><div class="k">All materials</div><div class="v">£1,708</div><div class="n">Six orders, delivered</div></div>
+        <div class="stat"><div class="k">Trades</div><div class="v">£1,350 to £2,300</div><div class="n">Electrician and plasterer, estimated</div></div>
+      </div>
+      <p class="small" style="margin:12px 0 0">Materials totals are from live supplier pages on 9 Sep 2026. Trade figures are typical southern-England ranges, not quotes. Tick boxes on this page save on this device only.</p>
+    </div>
+  </section>
+
+  <section id="before">
+    <h2>Before we start <span class="progress" data-progress-for="before"></span></h2>
+    <p class="lead">Nothing goes on the slab until the leaks are stopped and it is dry. These come first.</p>
+    <div class="card">
+      <ul class="tasks" data-group="before">
+        <li><input type="checkbox" data-key="b1" id="b1"><label for="b1">Find and fix the small leak from Emma's bathroom <span class="who">Jake</span><small>Check the vanity waste, tap tails and the shower tray seal first, then the hot and cold feeds behind the vanity. Nothing else starts until the slab stays dry with the dehumidifier off.</small></label></li>
+        <li><input type="checkbox" data-key="b2" id="b2"><label for="b2">Cap the hot water pipe on the bathroom side, inside the back of Emma's vanity unit <span class="who">Jake</span><small>Isolate and drain, cut square with a pipe slice, deburr, and fit a push-fit stop end to match the pipe (15 or 22 mm). Capping it there keeps the joint hidden by the vanity and easy to reconnect if a hot feed is ever wanted again.</small></label></li>
+        <li><input type="checkbox" data-key="b3" id="b3"><label for="b3">Cap the redundant cold pipes so one cold feed enters the room, tees once, and serves the sink and the outside tap <span class="who">Jake</span><small>Push-fit stop ends on the dead legs, a push-fit tee at the split, and an isolating valve on the sink branch. Extend the sink feed so it finishes at least 400 mm above the slab; the existing isolator stub sits right at new floor level.</small></label></li>
+        <li><input type="checkbox" data-key="b4" id="b4"><label for="b4">Decide where the sink waste will go before filling any holes <span class="who">Jake</span><small>See Decisions below. The washing machine waste is the natural candidate to keep for the sink.</small></label></li>
+        <li><input type="checkbox" data-key="b5" id="b5"><label for="b5">Fill the holes that are not being reused: washing machine, tumble dryer vent, toilet and shower waste <span class="who">Jake</span><small>Pull out any redundant pipe, brush the hole clean, pack stainless wire wool or set expanding foam 30 to 40 mm back from the face, dampen, then pack mortar flush and texture it to match.</small></label></li>
+        <li><input type="checkbox" data-key="b6" id="b6"><label for="b6">Strip the three block walls back to bare block, full height <span class="who">Jake</span><small>Remove the remaining plasterboard, old battens, fixings and the old socket back boxes. Knock off tile-adhesive ridges on the slab.</small></label></li>
+        <li><input type="checkbox" data-key="b7" id="b7"><label for="b7">Run the dehumidifier until the slab reads dry <span class="who">Jake</span><small>Tape a 500 mm square of polythene to the slab for 24 hours. If there is no darkening or condensation underneath, it is dry enough for the membrane.</small></label></li>
+        <li><input type="checkbox" data-key="b8" id="b8"><label for="b8">Book the electrician and the plasterer <span class="who">Jake</span><small>Electrician for first fix once the wall battens are up, plasterer once the boards are on, electrician back for second fix after the skim. Give them both the brief in Trades to book.</small></label></li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="plan">
+    <h2>The plan</h2>
+    <p class="lead">Eight phases. Each one only starts when the one before is finished, because the walls need the floor level fixed, the cables need the battens, and the plasterer needs the boards.</p>
+    <ol class="phases">
+      <li class="zero">
+        <h3>Prep and plumbing <span class="progress" data-progress-for="before"></span></h3>
+        <div class="when">Jake · the list above</div>
+      </li>
+      <li>
+        <h3>Floor <span class="progress" data-progress-for="p1"></span></h3>
+        <div class="when">Jake · about two days once materials arrive</div>
+        <div class="card">
+          <ul class="tasks" data-group="p1">
+            <li><input type="checkbox" data-key="p1a" id="p1a"><label for="p1a">Sweep and vacuum the slab, then loose-lay the 1200 gauge DPM in one piece with 150 mm turned up every wall. Tape the upstand to the block.</label></li>
+            <li><input type="checkbox" data-key="p1b" id="p1b"><label for="p1b">Set the laser at finished joist-top level: 200 mm above the slab at the high end (small window), 250 mm at the garden-door end.</label></li>
+            <li><input type="checkbox" data-key="p1c" id="p1c"><label for="p1c">Cut the six 5.4 m joists in half (2480 mm) and lay them across the 2.5 m width at 400 mm centres, first and last 50 mm from the end walls.</label></li>
+            <li><input type="checkbox" data-key="p1d" id="p1d"><label for="p1d">Pack each joist to the laser line using the packing guide, five packing points per joist.</label></li>
+            <li><input type="checkbox" data-key="p1e" id="p1e"><label for="p1e">Fix each joist end to the block wall with an angle bracket at the top of the joist, above the DPM upstand. Two 5×30 screws into the joist, one 7.5×72 masonry screw into the block.</label></li>
+            <li><input type="checkbox" data-key="p1f" id="p1f"><label for="p1f">Run the sink cold feed and waste through the joists before any insulation goes in. 45 mm holes on the joist centreline, at least 300 mm from the joist ends.</label></li>
+            <li><input type="checkbox" data-key="p1g" id="p1g"><label for="p1g">Cut the 100 mm PIR into strips 2 to 3 mm wider than each bay and push them up flush with the joist tops. Use the joist offcuts as noggins in the middle bays.</label></li>
+            <li><input type="checkbox" data-key="p1h" id="p1h"><label for="p1h">Lay the 22 mm P5 boards with the long edge along the 4.5 m length, end joints staggered and cut to land on joist centres, glued on every tongue and screwed at 300 mm along each joist, 10 mm gap at the walls.</label></li>
+          </ul>
+        </div>
+      </li>
+      <li>
+        <h3>Wall battens <span class="progress" data-progress-for="p2"></span></h3>
+        <div class="when">Jake · one day</div>
+        <div class="card">
+          <ul class="tasks" data-group="p2">
+            <li><input type="checkbox" data-key="p2a" id="p2a"><label for="p2a">Fix a horizontal 47×75 treated batten along the bottom of each block wall, 10 mm above the new floor, and another at ceiling level, with a strip of DPC behind each.</label></li>
+            <li><input type="checkbox" data-key="p2b" id="p2b"><label for="p2b">Fix vertical battens at 600 mm centres, plus one each side of the window and door openings and in every corner, DPC behind every batten, 7.5×100 masonry screws at 600 mm.</label></li>
+            <li><input type="checkbox" data-key="p2c" id="p2c"><label for="p2c">Plumb every batten with the laser or a straight edge; pack behind where the block is out of true. The plasterer will thank you.</label></li>
+          </ul>
+        </div>
+      </li>
+      <li>
+        <h3>Electrics first fix <span class="progress" data-progress-for="p3"></span></h3>
+        <div class="when">Electrician · one day</div>
+        <div class="card">
+          <ul class="tasks" data-group="p3">
+            <li><input type="checkbox" data-key="p3a" id="p3a"><label for="p3a">Cables for sockets, lights, fan and switch run in the 20 mm gap between the PIR and the plasterboard. Back boxes fixed to battens.</label></li>
+            <li><input type="checkbox" data-key="p3b" id="p3b"><label for="p3b">Downlight positions marked and holes cut in the ceiling. Old pendant position cut back to a neat square for patching.</label></li>
+            <li><input type="checkbox" data-key="p3c" id="p3c"><label for="p3c">Extractor position cut and duct route to outside agreed and installed through the ceiling void.</label></li>
+            <li><input type="checkbox" data-key="p3d" id="p3d"><label for="p3d">New circuit run back to the consumer unit and left safe. Agree whether an RCBO or a consumer unit change is needed.</label></li>
+          </ul>
+        </div>
+      </li>
+      <li>
+        <h3>Insulate and board the walls <span class="progress" data-progress-for="p4"></span></h3>
+        <div class="when">Jake · two days</div>
+        <div class="card">
+          <ul class="tasks" data-group="p4">
+            <li><input type="checkbox" data-key="p4a" id="p4a"><label for="p4a">Cut 50 mm PIR to a tight friction fit between the battens, pushed back against the block. Foil-tape every joint and the edges to the battens so it doubles as the vapour control layer.</label></li>
+            <li><input type="checkbox" data-key="p4b" id="p4b"><label for="p4b">Fix 12.5 mm tapered-edge plasterboard to the battens with 38 mm drywall screws at 300 mm centres, boards 10 mm off the floor, joints tight and on battens.</label></li>
+            <li><input type="checkbox" data-key="p4c" id="p4c"><label for="p4c">Patch the ceiling where the old light was with a plasterboard offcut screwed to noggins, and cut the socket and switch openings.</label></li>
+          </ul>
+        </div>
+      </li>
+      <li>
+        <h3>Plaster skim <span class="progress" data-progress-for="p5"></span></h3>
+        <div class="when">Plasterer · one to two days plus drying</div>
+        <div class="card">
+          <ul class="tasks" data-group="p5">
+            <li><input type="checkbox" data-key="p5a" id="p5a"><label for="p5a">Scrim all joints, bead the external corners and window reveals, skim three new walls, blend into the existing plastered door wall, skim the ceiling including the patch.</label></li>
+            <li><input type="checkbox" data-key="p5b" id="p5b"><label for="p5b">Leave to dry fully before second fix and painting. Usually a week with some heat and the window open.</label></li>
+          </ul>
+        </div>
+      </li>
+      <li>
+        <h3>Electrics second fix <span class="progress" data-progress-for="p6"></span></h3>
+        <div class="when">Electrician · half a day</div>
+        <div class="card">
+          <ul class="tasks" data-group="p6">
+            <li><input type="checkbox" data-key="p6a" id="p6a"><label for="p6a">Fit downlights, switch, extractor fan and isolator, sockets. Test, energise and issue the Electrical Installation Certificate and Part P notification.</label></li>
+          </ul>
+        </div>
+      </li>
+      <li>
+        <h3>Sink and finishing <span class="progress" data-progress-for="p7"></span></h3>
+        <div class="when">Jake · half a day</div>
+        <div class="card">
+          <ul class="tasks" data-group="p7">
+            <li><input type="checkbox" data-key="p7a" id="p7a"><label for="p7a">Fit the sink, cold tap, trap and 40 mm waste to the agreed drain. Test for leaks and leave the DPM upstand sealed where pipes pass.</label></li>
+            <li><input type="checkbox" data-key="p7b" id="p7b"><label for="p7b">Skirting over the DPM upstand and the board gap, then paint. Neither is costed here.</label></li>
+          </ul>
+        </div>
+      </li>
+    </ol>
+  </section>
+
+  <section id="shopping">
+    <h2>Shopping lists</h2>
+    <p class="lead">Grouped by order so each one clears its supplier's free-delivery threshold. Tick items off as they arrive.</p>
+    <div class="card">
+      <div class="order-head"><h3>Order 1 · Floor timber, boards and membrane · Materials Market <span class="progress" data-progress-for="o1"></span></h3><span class="total">£369.13</span></div>
+      <p class="small">Online merchant, kerbside delivery, joists about 5 working days, boards about 2. Free delivery over £300 ex VAT on timber and building materials, and this basket is £307.61 ex VAT. Their charges are per supplier, so if the checkout shows two separate £36 delivery lines, use the Poole fallback below instead. Minimum order on the joist is 5 lengths.</p>
+      <div class="tablewrap"><table data-group="o1">
+        <thead><tr><th></th><th>Item</th><th class="num">Qty</th><th class="num">Each</th><th class="num">Total</th></tr></thead>
+        <tbody>
+          <tr><td><input type="checkbox" data-key="o1a"></td><td><a href="https://materialsmarket.com/products/47mm-x-200mm-sawn-treated-timber-c24-8-x-2-5-4m" target="_blank" rel="noopener">47×200 C24 treated joist, 5.4 m</a><br><span class="small">Cut each in half for 12 joists at 2480 mm. Actual 45×195, Tanalith E treated, kiln dried.</span></td><td class="num">6</td><td class="num">£26.65</td><td class="num">£159.90</td></tr>
+          <tr><td><input type="checkbox" data-key="o1b"></td><td><a href="https://materialsmarket.com/products/25mm-x-50mm-sawn-treated-timber-batten-2-x-1-4-8m-464f7292-ca73-4a5f-b92d-be9edf3dfdf0" target="_blank" rel="noopener">25×50 treated batten, 4.8 m</a><br><span class="small">Bulk packing under joists 5 to 9.</span></td><td class="num">3</td><td class="num">£4.03</td><td class="num">£12.09</td></tr>
+          <tr><td><input type="checkbox" data-key="o1c"></td><td><a href="https://materialsmarket.com/products/47mm-x-50mm-sawn-treated-timber-2-x-2-4-8m" target="_blank" rel="noopener">47×50 treated, 4.8 m</a><br><span class="small">Bulk packing under joists 10 to 12.</span></td><td class="num">2</td><td class="num">£5.56</td><td class="num">£11.12</td></tr>
+          <tr><td><input type="checkbox" data-key="o1d"></td><td><a href="https://materialsmarket.com/products/22mm-p5-moisture-resistant-chipboard-flooring-t-g-2400mm-x-600mm" target="_blank" rel="noopener">22 mm P5 T&amp;G chipboard, 2400×600</a><br><span class="small">Nine needed, one spare.</span></td><td class="num">10</td><td class="num">£13.58</td><td class="num">£135.80</td></tr>
+          <tr><td><input type="checkbox" data-key="o1e"></td><td><a href="https://materialsmarket.com/products/300mu-1200g-black-polythene-damp-proof-membrane-dpm-4m-x-25m-100m2-roll" target="_blank" rel="noopener">1200 gauge DPM, 4 m × 25 m</a><br><span class="small">Far more than the floor needs, but it lifts the order over the free-delivery line and costs less than paying delivery plus a small roll elsewhere. The spare covers the slab during the works and lines behind the wall battens if wanted.</span></td><td class="num">1</td><td class="num">£50.22</td><td class="num">£50.22</td></tr>
+          <tr class="total"><td></td><td>Order 1 total, delivered</td><td></td><td></td><td class="num">£369.13</td></tr>
+        </tbody>
+      </table></div>
+      <p class="small"><strong>Local fallback for this order:</strong> The Timber Group, 480-488 Ringwood Road, Poole BH12 3LY, 01202 735735. Twelve <a href="https://www.thetimbergroup.co.uk/joists-carcassing/treated-timber-joist-c24-47-x-200mm-104-8800482" target="_blank" rel="noopener">3.0 m lengths of the same C24 joist</a> at £19.80, ten <a href="https://www.thetimbergroup.co.uk/chipboard/2400-x-600-moisture-resistant-chipboard-flooring-p5-t&amp;g-on-4-edges-22mm-100-8800176" target="_blank" rel="noopener">22 mm boards</a> at £16.10 and the two battens come to about £430 with free delivery over £250 ex VAT, plus a <a href="https://www.wickes.co.uk/NDC-1200-Gauge-Blue-Damp-Proof-Membrane---4-X-5m/p/153443" target="_blank" rel="noopener">£28 Wickes 4 m × 5 m DPM</a>. Click and collect has no minimum.</p>
+    </div>
+
+    <div class="card">
+      <div class="order-head"><h3>Order 2 · Floor insulation and fixings · Toolstation <span class="progress" data-progress-for="o2"></span></h3><span class="total">£320.05</span></div>
+      <p class="small">Free delivery over £40. The PIR ships direct from the supplier in about 4 working days; everything else is next day. Nearest branch for collection is Poole, 10 Yarrow Road BH12 4QY.</p>
+      <div class="tablewrap"><table data-group="o2">
+        <thead><tr><th></th><th>Item</th><th class="num">Qty</th><th class="num">Each</th><th class="num">Total</th></tr></thead>
+        <tbody>
+          <tr><td><input type="checkbox" data-key="o2a"></td><td><a href="https://www.toolstation.com/sopratherm-pir-insulation-board-ga4000/pAM004" target="_blank" rel="noopener">Sopratherm GA4000 100 mm PIR, 2400×1200</a><br><span class="small">Cut into 355 mm strips, three per board.</span></td><td class="num">4</td><td class="num">£52.99</td><td class="num">£211.96</td></tr>
+          <tr><td><input type="checkbox" data-key="o2b"></td><td><a href="https://www.toolstation.com/broadfix-glazing-shims-kit/p78864" target="_blank" rel="noopener">Broadfix shims kit, 300 pieces, 1 to 6 mm</a></td><td class="num">1</td><td class="num">£20.39</td><td class="num">£20.39</td></tr>
+          <tr><td><input type="checkbox" data-key="o2c"></td><td><a href="https://www.toolstation.com/heavy-duty-angle-bracket/p15638" target="_blank" rel="noopener">Heavy duty angle bracket 60×40×60, pack of 10</a><br><span class="small">24 needed, joist ends to block wall.</span></td><td class="num">3</td><td class="num">£9.99</td><td class="num">£29.97</td></tr>
+          <tr><td><input type="checkbox" data-key="o2d"></td><td><a href="https://www.toolstation.com/screws-fixings/masonry-screws/c856" target="_blank" rel="noopener">Masonry screws 7.5×72, pack of 10</a><br><span class="small">Brackets into block. 6 mm drill bit.</span></td><td class="num">3</td><td class="num">£1.49</td><td class="num">£4.47</td></tr>
+          <tr><td><input type="checkbox" data-key="o2e"></td><td><a href="https://www.toolstation.com/single-thread-countersunk-pozi-screw/p37313" target="_blank" rel="noopener">Wood screws 5×30, box of 200</a><br><span class="small">Brackets into joists.</span></td><td class="num">1</td><td class="num">£4.49</td><td class="num">£4.49</td></tr>
+          <tr><td><input type="checkbox" data-key="o2f"></td><td><a href="https://www.toolstation.com/screws-fixings/wood-screws/c852?diameter_mm=5mm&amp;ts_length=60mm" target="_blank" rel="noopener">Reisser Cutter 5×60 screws, box of 200</a><br><span class="small">Deck to joists.</span></td><td class="num">1</td><td class="num">£8.99</td><td class="num">£8.99</td></tr>
+          <tr><td><input type="checkbox" data-key="o2g"></td><td><a href="https://www.toolstation.com/polythene-jointing-tape/p52536" target="_blank" rel="noopener">Polythene jointing tape 50 mm × 33 m</a><br><span class="small">DPM upstand and any patches.</span></td><td class="num">1</td><td class="num">£6.99</td><td class="num">£6.99</td></tr>
+          <tr><td><input type="checkbox" data-key="o2h"></td><td><a href="https://www.toolstation.com/5-minute-polyurethane-wood-glue/p93568" target="_blank" rel="noopener">Everbuild 5 Minute PU wood glue, 750 g</a><br><span class="small">Every tongue and groove.</span></td><td class="num">1</td><td class="num">£18.99</td><td class="num">£18.99</td></tr>
+          <tr><td><input type="checkbox" data-key="o2i"></td><td><a href="https://www.toolstation.com/ct1-adhesive-sealant/p85802" target="_blank" rel="noopener">CT1 sealant, 290 ml</a><br><span class="small">Seal the DPM where pipes pass through.</span></td><td class="num">1</td><td class="num">£13.80</td><td class="num">£13.80</td></tr>
+          <tr class="total"><td></td><td>Order 2 total, delivered</td><td></td><td></td><td class="num">£320.05</td></tr>
+        </tbody>
+      </table></div>
+    </div>
+
+    <div class="card">
+      <div class="order-head"><h3>Order 3 · Wall battens, plasterboard and insulation · Materials Market <span class="progress" data-progress-for="o3"></span></h3><span class="total">£578.04</span></div>
+      <p class="small">Quantities assume 2.3 m walls; see Decisions. Materials Market charges delivery by product group: the timber, plasterboard, DPC and mortar group is over its £200 ex VAT threshold so ships free, while the PIR group is under its £400 ex VAT threshold and carries £54 delivery. Even so it is £48 cheaper than the next-best 50 mm PIR. Order this in the same checkout as Order 1 if you have room to store it; the thresholds are met either way. Kerbside, about 2 working days.</p>
+      <div class="tablewrap"><table data-group="o3">
+        <thead><tr><th></th><th>Item</th><th class="num">Qty</th><th class="num">Each</th><th class="num">Total</th></tr></thead>
+        <tbody>
+          <tr><td><input type="checkbox" data-key="o3a"></td><td><a href="https://materialsmarket.com/products/47mm-x-75mm-sawn-treated-timber-3-x-2-4-8m" target="_blank" rel="noopener">47×75 treated batten, 4.8 m</a><br><span class="small">Fixed on edge so the 70 mm depth takes 50 mm PIR plus a 20 mm cable gap. About 26 verticals plus top and bottom rails.</span></td><td class="num">18</td><td class="num">£8.33</td><td class="num">£149.94</td></tr>
+          <tr><td><input type="checkbox" data-key="o3b"></td><td><a href="https://materialsmarket.com/products/12-5mm-knauf-wallboard-tapered-edge-plasterboard-2400mm-x-1200mm" target="_blank" rel="noopener">Knauf 12.5 mm tapered-edge plasterboard, 2400×1200</a><br><span class="small">Nine and a bit boards of wall; the offcuts patch the ceiling where the pendant was.</span></td><td class="num">10</td><td class="num">£11.18</td><td class="num">£111.80</td></tr>
+          <tr><td><input type="checkbox" data-key="o3c"></td><td><a href="https://materialsmarket.com/products/100mm-visqueen-polyethylene-damp-proof-course-dpc-30m-9-pack" target="_blank" rel="noopener">DPC strip 100 mm × 30 m</a><br><span class="small">Behind every batten so no timber touches block.</span></td><td class="num">2</td><td class="num">£4.97</td><td class="num">£9.94</td></tr>
+          <tr><td><input type="checkbox" data-key="o3d"></td><td><a href="https://materialsmarket.com/products/blue-circle-quality-assured-mortar-mix-20kg" target="_blank" rel="noopener">Blue Circle ready-mixed mortar, 20 kg</a><br><span class="small">Filling the three old holes. One bag is plenty.</span></td><td class="num">1</td><td class="num">£12.96</td><td class="num">£12.96</td></tr>
+          <tr><td><input type="checkbox" data-key="o3e"></td><td><a href="https://materialsmarket.com/products/50mm-celotex-ga4050-pir-insulation-board-2400mm-x-1200mm" target="_blank" rel="noopener">Celotex GA4050 50 mm PIR, 2400×1200</a><br><span class="small">Cut to a friction fit between battens. A 10th board at the 10-plus price is £26.34 if you want a spare.</span></td><td class="num">9</td><td class="num">£26.60</td><td class="num">£239.40</td></tr>
+          <tr><td></td><td>Delivery on the insulation group</td><td></td><td></td><td class="num">£54.00</td></tr>
+          <tr class="total"><td></td><td>Order 3 total, delivered</td><td></td><td></td><td class="num">£578.04</td></tr>
+        </tbody>
+      </table></div>
+      <p class="small"><strong>Alternatives checked:</strong> Wickes plasterboard is <a href="https://www.wickes.co.uk/Knauf-Tapered-Edge-Plasterboard---12-5-x-1200-x-2400mm/p/220210" target="_blank" rel="noopener">£13.40</a> a board, Toolstation Sopratherm 50 mm PIR is <a href="https://www.toolstation.com/sopratherm-pir-insulation-board-ga4000/pAL990" target="_blank" rel="noopener">£37.99</a> a board, and The Timber Group in Poole has the 47×75 at <a href="https://www.thetimbergroup.co.uk/joists-carcassing/treated-timber-joist-c24-47-x-75mm-104-8800498" target="_blank" rel="noopener">£11.06</a>. Using 47×50 battens instead saves about £50 but leaves the 50 mm PIR 5 mm proud of a 45 mm batten and no cable gap, so not recommended.</p>
+    </div>
+    <div class="card">
+      <div class="order-head"><h3>Order 4 · Wall fixings, making good, pipe capping, hole cutter · Toolstation <span class="progress" data-progress-for="o4"></span></h3><span class="total">£122.36</span></div>
+      <p class="small">Free delivery over £40, next day, or collect from Poole. Can go in the same checkout as Order 2. Check the hot pipe behind Emma's vanity before ordering: if it is 15 mm you do not need the 22 mm stop end.</p>
+      <div class="tablewrap"><table data-group="o4">
+        <thead><tr><th></th><th>Item</th><th class="num">Qty</th><th class="num">Each</th><th class="num">Total</th></tr></thead>
+        <tbody>
+          <tr><td><input type="checkbox" data-key="o4a"></td><td><a href="https://www.toolstation.com/fischer-ffs-frame-fixing-screw/p94050" target="_blank" rel="noopener">Fischer FFS frame fixing screw 7.5×132, box of 100</a><br><span class="small">Battens to block, one every 600 mm. Long enough to pass through the 70 mm batten with 60 mm in the block. 6 mm masonry bit.</span></td><td class="num">1</td><td class="num">£23.49</td><td class="num">£23.49</td></tr>
+          <tr><td><input type="checkbox" data-key="o4b"></td><td><a href="https://www.toolstation.com/drywall-black-phosphate-phillips-screw/p28800" target="_blank" rel="noopener">Drywall screws 3.5×38, box of 1000</a></td><td class="num">1</td><td class="num">£7.63</td><td class="num">£7.63</td></tr>
+          <tr><td><input type="checkbox" data-key="o4c"></td><td><a href="https://www.toolstation.com/aluminium-foil-tape/p81953" target="_blank" rel="noopener">Aluminium foil tape 75 mm × 45 m</a><br><span class="small">Every PIR joint and edge, so the foil face doubles as the vapour control layer.</span></td><td class="num">2</td><td class="num">£6.79</td><td class="num">£13.58</td></tr>
+          <tr><td><input type="checkbox" data-key="o4d"></td><td><a href="https://www.toolstation.com/soudal-expanding-foam-b3/p58804" target="_blank" rel="noopener">Soudal B3 expanding foam, 750 ml hand-held</a><br><span class="small">Backing for the three old holes, and gaps around pipe entries.</span></td><td class="num">1</td><td class="num">£6.25</td><td class="num">£6.25</td></tr>
+          <tr><td><input type="checkbox" data-key="o4e"></td><td><a href="https://www.toolstation.com/arctic-hayes-steel-wool/p30727" target="_blank" rel="noopener">Steel wool 450 g roll</a><br><span class="small">Packed into the holes behind the foam so nothing chews through.</span></td><td class="num">1</td><td class="num">£5.48</td><td class="num">£5.48</td></tr>
+          <tr><td><input type="checkbox" data-key="o4f"></td><td><a href="https://www.toolstation.com/hep2o-keyless-demountable-stopend/pAE940" target="_blank" rel="noopener">Hep2O demountable stop end 15 mm</a><br><span class="small">Redundant cold pipes. Demountable, so they come off again if a pipe is ever needed.</span></td><td class="num">3</td><td class="num">£3.55</td><td class="num">£10.65</td></tr>
+          <tr><td><input type="checkbox" data-key="o4g"></td><td><a href="https://www.toolstation.com/hep2o-keyless-demountable-stopend/pAE978" target="_blank" rel="noopener">Hep2O demountable stop end 22 mm</a><br><span class="small">For the hot pipe behind the vanity if it turns out to be 22 mm. Price seen in search results, confirm on the page.</span></td><td class="num">1</td><td class="num">£3.45</td><td class="num">£3.45</td></tr>
+          <tr><td><input type="checkbox" data-key="o4h"></td><td><a href="https://www.toolstation.com/jg-speedfit-equal-tee/p44521" target="_blank" rel="noopener">JG Speedfit equal tee 15 mm</a><br><span class="small">Where the single cold feed splits to sink and outside tap.</span></td><td class="num">1</td><td class="num">£3.80</td><td class="num">£3.80</td></tr>
+          <tr><td><input type="checkbox" data-key="o4i"></td><td><a href="https://www.toolstation.com/jg-speedfit-isolating-valve/p12212" target="_blank" rel="noopener">JG Speedfit isolating valve 15 mm</a><br><span class="small">On the sink branch. Half the Screwfix price.</span></td><td class="num">1</td><td class="num">£8.05</td><td class="num">£8.05</td></tr>
+          <tr><td><input type="checkbox" data-key="o4j"></td><td><a href="https://www.toolstation.com/automatic-copper-pipe-cutter/p65924" target="_blank" rel="noopener">Automatic copper pipe cutter 15 mm</a><br><span class="small">Square cuts for push-fit. Buy the 22 mm version too if the hot pipe is 22.</span></td><td class="num">1</td><td class="num">£9.99</td><td class="num">£9.99</td></tr>
+          <tr><td><input type="checkbox" data-key="o4k"></td><td><a href="https://www.toolstation.com/milwaukee-adjustable-hole-cutter/pAC659" target="_blank" rel="noopener">Milwaukee adjustable hole cutter, 51 to 178 mm</a><br><span class="small">One tool for the six 72 mm downlight holes and the extractor hole, with a dust shroud. Cheaper than buying two hole saws.</span></td><td class="num">1</td><td class="num">£29.99</td><td class="num">£29.99</td></tr>
+          <tr class="total"><td></td><td>Order 4 total, delivered</td><td></td><td></td><td class="num">£122.36</td></tr>
+        </tbody>
+      </table></div>
+    </div>
+    <div class="card">
+      <div class="order-head"><h3>Order 6 · Workshop sink and connections · Adexa plus Screwfix <span class="progress" data-progress-for="o6"></span></h3><span class="total">£240.65</span></div>
+      <p class="small">Best value of four set-ups compared. A commercial stainless unit on legs gives a 220 mm deep bowl at bench height, nothing to rot or chip, and it can be moved later. Adexa delivers free to mainland England, kerbside, flat-packed. The Screwfix items clear their £50 free-delivery line or can be added to Order 5.</p>
+      <div class="tablewrap"><table data-group="o6">
+        <thead><tr><th></th><th>Item</th><th class="num">Qty</th><th class="num">Each</th><th class="num">Total</th></tr></thead>
+        <tbody>
+          <tr><td><input type="checkbox" data-key="o6a"></td><td><a href="https://adexa.co.uk/Stainless-Steel-Furniture-20/Sink-Units-with-1-Bowl-72/Commercial-Sink-Stainless-steel-1000x600x900mm-1-bowl-right-Splashback-Adexa-SINK8060RIGHT" target="_blank" rel="noopener">Adexa commercial stainless sink unit 1000×600×900, bowl right, splashback</a><br><span class="small">Bowl 450×480×220, one tap hole, adjustable feet, 13 kg flat pack. The 600 mm wide version is £106.80 if space is tight; the version with an undershelf is £145.20.</span></td><td class="num">1</td><td class="num">£134.40</td><td class="num">£134.40</td></tr>
+          <tr><td><input type="checkbox" data-key="o6b"></td><td><a href="https://adexa.co.uk/Stainless-Steel-Furniture-20/Sink-Units-with-1-Bowl-72/Sink-Accessories-350" target="_blank" rel="noopener">Adexa sink strainer waste</a><br><span class="small">Buy with the sink so it matches the bowl outlet.</span></td><td class="num">1</td><td class="num">£11.52</td><td class="num">£11.52</td></tr>
+          <tr><td><input type="checkbox" data-key="o6c"></td><td><a href="https://www.screwfix.com/p/single-lever-mono-mixer-kitchen-tap-chrome/9192t" target="_blank" rel="noopener">Single lever mono mixer tap, chrome</a><br><span class="small">Single hole fits the commercial tap hole. Connect the cold tail, blank the hot tail.</span></td><td class="num">1</td><td class="num">£28.99</td><td class="num">£28.99</td></tr>
+          <tr><td><input type="checkbox" data-key="o6d"></td><td><a href="https://www.screwfix.com/p/mcalpine-tubular-p-trap-white-40mm/75915" target="_blank" rel="noopener">McAlpine tubular P trap 40 mm</a></td><td class="num">1</td><td class="num">£9.00</td><td class="num">£9.00</td></tr>
+          <tr><td><input type="checkbox" data-key="o6e"></td><td><a href="https://www.screwfix.com/c/heating-plumbing/pipe/cat831500?brand=jg_speedfit&amp;productdiameter=15_mm" target="_blank" rel="noopener">JG Speedfit 15 mm barrier pipe, 3 m</a><br><span class="small">From the isolating valve to the tap. Copper is about £8 more if you prefer it.</span></td><td class="num">1</td><td class="num">£6.39</td><td class="num">£6.39</td></tr>
+          <tr><td><input type="checkbox" data-key="o6f"></td><td><a href="https://www.screwfix.com/p/jg-speedfit-plastic-push-fit-equal-90-elbow-15mm/97179" target="_blank" rel="noopener">JG Speedfit 15 mm elbow</a></td><td class="num">2</td><td class="num">£2.55</td><td class="num">£5.10</td></tr>
+          <tr><td><input type="checkbox" data-key="o6g"></td><td><a href="https://www.screwfix.com/c/heating-plumbing/tap-connectors/cat7240041" target="_blank" rel="noopener">Flexible tap connector 15 mm × ½", straight</a><br><span class="small">Only needed if the tap's own tails do not reach.</span></td><td class="num">1</td><td class="num">£3.74</td><td class="num">£3.74</td></tr>
+          <tr><td><input type="checkbox" data-key="o6h"></td><td><a href="https://www.screwfix.com/c/heating-plumbing/pipe-clips/cat831642?productdiameter=15_mm" target="_blank" rel="noopener">Talon 15 mm pipe clips, 20 pack</a></td><td class="num">1</td><td class="num">£3.18</td><td class="num">£3.18</td></tr>
+          <tr><td><input type="checkbox" data-key="o6i"></td><td><a href="https://www.screwfix.com/p/floplast-solvent-weld-waste-pipe-white-40mm-x-3m/44310" target="_blank" rel="noopener">FloPlast 40 mm solvent-weld waste pipe, 3 m</a><br><span class="small">Buy a second length if the drain is more than 2.5 m from the sink.</span></td><td class="num">1</td><td class="num">£7.28</td><td class="num">£7.28</td></tr>
+          <tr><td><input type="checkbox" data-key="o6j"></td><td><a href="https://www.screwfix.com/p/floplast-bends-90-white-40mm-5-pack/90596" target="_blank" rel="noopener">FloPlast 40 mm 90° bends, 5 pack</a></td><td class="num">1</td><td class="num">£6.09</td><td class="num">£6.09</td></tr>
+          <tr><td><input type="checkbox" data-key="o6k"></td><td><a href="https://www.screwfix.com/p/floplast-sc250-solvent-cement-250ml/14295" target="_blank" rel="noopener">FloPlast solvent cement, 250 ml</a></td><td class="num">1</td><td class="num">£7.98</td><td class="num">£7.98</td></tr>
+          <tr><td><input type="checkbox" data-key="o6l"></td><td><a href="https://www.screwfix.com/p/floplast-solvent-weld-waste-pipe-clips-white-40mm-20-pack/48555" target="_blank" rel="noopener">FloPlast 40 mm pipe clips, 20 pack</a></td><td class="num">1</td><td class="num">£13.98</td><td class="num">£13.98</td></tr>
+          <tr><td><input type="checkbox" data-key="o6m"></td><td>½" BSP blanking cap for the unused hot tail<br><span class="small">Any plumbing counter; price approximate.</span></td><td class="num">1</td><td class="num">£3.00</td><td class="num">£3.00</td></tr>
+          <tr class="total"><td></td><td>Order 6 total, delivered</td><td></td><td></td><td class="num">£240.65</td></tr>
+        </tbody>
+      </table></div>
+      <p class="small"><strong>The other three set-ups compared.</strong> A stainless inset sink in a 600 mm flat-pack kitchen base with a worktop comes to about £215, only £25 less, and the chipboard carcass will not survive a wet garage floor. A ceramic Belfast sink on the <a href="https://www.toolstation.com/kitchen-kit-belfast-sink-base-kitchen-cabinet-flatpack/pAH316" target="_blank" rel="noopener">Toolstation £58.49 Belfast base</a> with a <a href="https://www.screwfix.com/p/pegler-pb50-hose-union-bib-tap-15mm-x/6263v" target="_blank" rel="noopener">Pegler hose-union bib tap</a> is about £285 and is the bombproof choice if you want to stand a bucket in it, using the <a href="https://www.britishbathroomcompany.co.uk/reginox-belfast-ceramic-sink-595-inc-waste-p10090" target="_blank" rel="noopener">Reginox 595 mm sink with waste at £195.83</a>. Plastic laundry tubs exist on Amazon at roughly £100 to £150 but no UK price could be verified and they arrive with US-pattern fittings.</p>
+    </div>
+    <div class="card">
+      <div class="order-head"><h3>Order 5 · Lights and extractor · Screwfix <span class="progress" data-progress-for="o5"></span></h3><span class="total">£77.91</span></div>
+      <p class="small">Fittings you can buy yourself and hand to the electrician, which usually beats their mark-up. Free delivery over £50, or collect from Screwfix Ferndown, Unit 5 Maple Business Park, Cobham Road BH21 7RS. Agree the fan exit route with the electrician before buying the terminal.</p>
+      <div class="tablewrap"><table data-group="o5">
+        <thead><tr><th></th><th>Item</th><th class="num">Qty</th><th class="num">Each</th><th class="num">Total</th></tr></thead>
+        <tbody>
+          <tr><td><input type="checkbox" data-key="o5a"></td><td><a href="https://www.screwfix.com/p/lap-chaac-fixed-led-downlight-white/800RE" target="_blank" rel="noopener">LAP Chaac fixed fire-rated LED downlight, IP65</a><br><span class="small">5.5 W, 600 lm, colour switchable 2700 to 6000 K, dimmable, 72 mm cut-out. Multi-buy: six for £42.</span></td><td class="num">6</td><td class="num">£7.00</td><td class="num">£42.00</td></tr>
+          <tr><td><input type="checkbox" data-key="o5b"></td><td><a href="https://www.screwfix.com/p/manrose-mg100t-gold-standard-100mm-4-axial-bathroom-extractor-fan-with-timer-white-240v/62530" target="_blank" rel="noopener">Manrose MG100T 100 mm extractor fan with timer</a><br><span class="small">Ceiling or wall mount, 85 m³/h, about 3 air changes an hour for this room. Fine for damp; if you will sand or spray, budget £110 for the Manrose MF100T inline fan instead.</span></td><td class="num">1</td><td class="num">£27.38</td><td class="num">£27.38</td></tr>
+          <tr><td><input type="checkbox" data-key="o5c"></td><td><a href="https://www.screwfix.com/p/manrose-pvc-flexible-ducting-hose-white-3m-x-100mm/18232" target="_blank" rel="noopener">Manrose flexible duct 3 m × 100 mm</a></td><td class="num">1</td><td class="num">£5.09</td><td class="num">£5.09</td></tr>
+          <tr><td><input type="checkbox" data-key="o5d"></td><td><a href="https://www.screwfix.com/p/manrose-fixed-louvre-vent-white-100mm-x-100mm/14434" target="_blank" rel="noopener">Manrose fixed louvre vent, 100 mm spigot</a><br><span class="small">External terminal for a wall exit. For a through-wall duct use the <a href="https://www.screwfix.com/p/manrose-extractor-fan-wall-fixing-kit-100mm/11784" target="_blank" rel="noopener">wall fixing kit at £17.75</a> instead.</span></td><td class="num">1</td><td class="num">£3.44</td><td class="num">£3.44</td></tr>
+          <tr class="total"><td></td><td>Order 5 total, delivered</td><td></td><td></td><td class="num">£77.91</td></tr>
+        </tbody>
+      </table></div>
+      <p class="small">Sockets, back boxes, cable and the RCBO are best left to the electrician to supply so the certificate covers them. For reference: a white twin socket is about £2.40, a 35 mm dry-lining box £1.20, and a 50 m drum of 2.5 mm twin and earth <a href="https://www.screwfix.com/p/prysmian-6242y-grey-2-5mm-twin-earth-cable-50m-drum/83956" target="_blank" rel="noopener">£56.39</a>.</p>
+    </div>
+  </section>
+
+  <section id="trades">
+    <h2>Trades to book</h2>
+    <p class="lead">What to ask each trade for, so quotes come back comparable.</p>
+    <p class="small">Plumbing is being done in-house; see the plumbing note under Build notes. Only two trades to book.</p>
+
+    <div class="card">
+      <h3>Electrician · two visits, budget £800 to £1,400 all in</h3>
+      <p><strong>Ask for:</strong> a new circuit from the consumer unit for four to six twin sockets around the bench positions, six fire-rated downlights on a new switch replacing the pendant, a 100 mm ceiling extractor on a timer with its own isolator and ducting to outside, and the Electrical Installation Certificate plus Part P notification. Mention the 20 mm service gap behind the plasterboard so cables run without chasing, and that 35 mm dry-lining boxes fit. Ask whether a 16 A or 32 A commando outlet for machinery is worth adding while the circuit is in.</p>
+      <p><strong>Why the range.</strong> A new circuit to a garage or workshop is notifiable under Part P, so use a registered electrician (NICEIC, NAPIT or similar) who notifies Building Control and issues the compliance certificate. Individual guide prices add up to £930 to £1,800 if priced as separate jobs; as one visit of one and a half to two days at the South West day rate of £260 to £380 plus £150 to £250 of cable, boxes and an RCBO, expect £800 to £1,400. Fittings you supply come off that. If the consumer unit has no spare way, add £550 to £900 for a board change.</p>
+      <p class="small">Sources: <a href="https://www.bestbuilders.co.uk/costs/electrician-cost-uk-electrician-hourly-rate" target="_blank" rel="noopener">BestBuilders day rates, Aug 2026</a> · <a href="https://www.elec-mate.com/garage-electrical-cost" target="_blank" rel="noopener">Elec-Mate garage circuits</a> · <a href="https://squote.app/knowledge/costs/extra-sockets-and-lights-pricing-guide" target="_blank" rel="noopener">squote new radial circuit</a> · <a href="https://www.trade2base.com/blog/downlights-installation-costs-uk" target="_blank" rel="noopener">Trade2Base downlights</a> · <a href="https://www.elec-mate.com/guides/electrical-work-notification-part-p" target="_blank" rel="noopener">Part P notification</a></p>
+    </div>
+
+    <div class="card">
+      <h3>Plasterer · one visit, budget £550 to £900</h3>
+      <p><strong>Ask for:</strong> skim over new 12.5 mm board on three walls (about 26 m²), blend into the existing plastered wall at the two corners, bead the window reveals and external corners, skim the ceiling (11.25 m²) including the patched pendant position and around the new downlight and fan holes, scrim and beads included. Boards will be fixed, joints tight, all back boxes in place.</p>
+      <p><strong>Why the range.</strong> South West skim rates are £22 to £32 per m² or £180 to £280 a day. About 37 m² of skim is two days of work with a day-rate floor, so small rooms price near the top per m².</p>
+      <p class="small">Sources: <a href="https://www.plasterers101.co.uk/article/plasterer-cost-uk-2026-price-guide" target="_blank" rel="noopener">Plasterers101 2026 guide</a> · <a href="https://www.bestbuilders.co.uk/costs/plastering-cost-uk" target="_blank" rel="noopener">BestBuilders plastering, Sep 2026</a></p>
+    </div>
+  </section>
+
+  <section id="build">
+    <h2>Build notes</h2>
+
+    <div class="card">
+      <h3>Floor design</h3>
+      <p>Twelve 47×200 C24 treated joists (actual 45×195) at 400 mm centres run across the 2.5 m width, so each joist sits on a level contour of the sloping slab and needs one packer thickness along its whole length. The 195 mm joist provides almost all the height: you only pack 5 mm at the high end rising to 55 mm at the garden-door end. Joist ends are tied to the block walls with light angle brackets above the DPM upstand, so nothing punctures the membrane. 100 mm PIR strips push up flush under 22 mm P5 tongue-and-groove chipboard.</p>
+      <h3>Packing guide</h3>
+      <p class="small">Joist 1 is 50 mm from the end wall at the high end (small window). Joist 12 is 50 mm from the garden-door wall. Set every joist to the laser line; this table is the guide for what to reach for.</p>
+      <div class="tablewrap"><table>
+        <thead><tr><th>Joists</th><th>Packing under joist</th><th>Made from</th></tr></thead>
+        <tbody>
+          <tr><td>1 to 4</td><td>5 to 19 mm</td><td>Plastic shims only</td></tr>
+          <tr><td>5 to 9</td><td>23 to 41 mm</td><td>25×50 treated batten full length, plus shims</td></tr>
+          <tr><td>10 to 12</td><td>46 to 55 mm</td><td>47×50 treated batten full length, plus shims</td></tr>
+        </tbody>
+      </table></div>
+      <p class="small">Five packing points per joist at roughly 600 mm spacing. The six 440 mm joist offcuts become noggins for the middle bays. Board ends must land on a joist: the first board in each row is cut so its far end sits on a joist centre, then the offcut starts the next row.</p>
+    </div>
+
+    <div class="card">
+      <h3>Wall design</h3>
+      <p>Treated 47×75 battens (actual 45×70) vertical at 600 mm centres with a horizontal batten top and bottom, DPC strip behind every batten so no timber touches block. 50 mm PIR sits between the battens against the block with every joint foil-taped, which leaves a 20 mm service gap behind the plasterboard for the electrician's cables and back boxes. 12.5 mm tapered-edge plasterboard finishes 10 mm above the floor. Each wall grows by about 85 mm, so the room ends up roughly 4.4 m × 2.33 m inside the plaster.</p>
+      <p class="small">The wall by the garden door is already plastered and stays as it is. The plasterer blends the new boards into it at the corners.</p>
+    </div>
+
+    <div class="card">
+      <h3>Plumbing, done yourself</h3>
+      <p>Everything here is cold water and 15 mm pipe, so push-fit does the lot with no soldering. Isolate at the stopcock, open the outside tap to drain down, cut each dead leg square with a pipe slice, deburr the end, mark the insertion depth and push the fitting fully home until it clicks. Stop ends on the redundant colds and on the hot pipe behind Emma's vanity (that one may be 22 mm, so check before buying). A push-fit tee where the single cold feed splits, an isolating valve on the sink branch, then a flexible tap connector onto the tap tail. The waste is 40 mm solvent-weld or push-fit pipe from a bottle trap under the sink, falling at least 1 in 40 to the drain. Turn the water back on slowly and check every joint dry after an hour and again the next day before anything gets boarded over.</p>
+    </div>
+
+    <div class="card">
+      <h3>Ceiling, lights and fan</h3>
+      <p>The ceiling stays. The old pendant position is patched with a plasterboard offcut on noggins and scrimmed. Six downlights in two rows of three suit a 4.5 m × 2.5 m room: rows about 800 mm in from each long wall, fittings about 1.1 m apart along the room. Fire-rated IP65 fittings are the safe default under a garage roof. The extractor mounts in the ceiling and ducts through the void to the outside; the electrician needs to confirm the exit point (wall terminal on the garden-facing wall, or a tile or soffit vent) before cutting anything.</p>
+    </div>
+  </section>
+
+  <section id="decisions">
+    <h2>Decisions and assumptions</h2>
+    <div class="callout"><strong>Sink waste route.</strong> The three holes you want to fill include the only two drains in the room (the washing machine waste and the toilet/shower waste). A sink needs a 40 mm waste to a drain. Cheapest is to keep the washing machine waste open and run the sink to it, filling only the tumble dryer vent and the toilet/shower waste. Otherwise you need to core a new hole through the block and run a new 40 mm waste to an outside gully.</div>
+    <div class="callout"><strong>Wall height assumed at 2.3 m.</strong> The wall quantities below use 2.3 m. Measure floor-to-ceiling and if it is nearer 2.5 m add one plasterboard and one PIR board.</div>
+    <div class="callout"><strong>Cold feed height.</strong> The existing isolator stub on the long wall is about 300 mm above the slab, which is right at new floor level. Extend it with push-fit to at least 400 mm before the floor is decked, or route it inside the floor void to the sink position.</div>
+    <div class="callout"><strong>Insulation choice.</strong> Mineral wool would save about £158 on the floor. It is not recommended here: wool on a cold slab under a sink, in a room that has already flooded, holds water and never dries. PIR does not.</div>
+    <div class="callout"><strong>Downlights.</strong> Six assumed. Four is enough for general light; six is better for bench work. Adjust the electrician brief to taste.</div>
+    <div class="callout"><strong>Extractor exit.</strong> Route to outside not yet known. If the ceiling void is a flat roof with no easy exit, a wall-mounted fan high on the garden-facing wall does the same job for less ducting.</div>
+  </section>
+
+  <footer>
+    <div class="noprint" style="display:flex;gap:10px;align-items:center;flex-wrap:wrap">
+      <button class="btn" id="reset">Clear all ticks on this device</button>
+      <span class="small">Ticks are saved in this browser only and are not shared.</span>
+    </div>
+    <p>Prices are as displayed on supplier websites on 9 September 2026 and will move. Trade cost ranges are typical southern-England figures for budgeting, not quotes. Structural sizes follow the Gemini advice notes plus standard UK practice for suspended timber floors on solid substrates; if Building Control is involved, run the joist and board spec past them first.</p>
+  </footer>
+</main>
+
+<script>
+(function () {
+  var KEY = 'workshop-rebuild-ticks-v1';
+  var state = {};
+  try { state = JSON.parse(localStorage.getItem(KEY) || '{}') || {}; } catch (e) { state = {}; }
+  function save() { try { localStorage.setItem(KEY, JSON.stringify(state)); } catch (e) {} }
+
+  var boxes = document.querySelectorAll('input[type=checkbox][data-key]');
+  function paint(box) {
+    var row = box.closest('li, tr');
+    if (row) row.classList.toggle('done', box.checked);
+  }
+  boxes.forEach(function (box) {
+    box.checked = !!state[box.getAttribute('data-key')];
+    paint(box);
+    box.addEventListener('change', function () {
+      state[box.getAttribute('data-key')] = box.checked;
+      if (!box.checked) delete state[box.getAttribute('data-key')];
+      save(); paint(box); progress();
+    });
+  });
+
+  function progress() {
+    document.querySelectorAll('[data-progress-for]').forEach(function (el) {
+      var g = el.getAttribute('data-progress-for');
+      var all = document.querySelectorAll('[data-group="' + g + '"] input[type=checkbox]');
+      if (!all.length) { el.textContent = ''; return; }
+      var done = 0; all.forEach(function (b) { if (b.checked) done++; });
+      el.textContent = done + ' of ' + all.length + ' done';
+    });
+  }
+  progress();
+
+  var reset = document.getElementById('reset');
+  if (reset) reset.addEventListener('click', function () {
+    if (!confirm('Clear every tick on this device?')) return;
+    state = {}; save();
+    boxes.forEach(function (b) { b.checked = false; paint(b); });
+    progress();
+  });
+})();
+</script>
+</body>
+</html>
