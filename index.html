@@ -82,6 +82,11 @@
   .order-head .total { font-weight: 700; font-size: 18px; white-space: nowrap; }
   .small { font-size: 13px; color: var(--muted); }
   .btn { background: var(--chip); color: var(--ink); border: 1px solid var(--line); border-radius: 8px; padding: 6px 10px; font-size: 13px; cursor: pointer; }
+  .btn.primary { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); text-decoration: none; display: inline-block; }
+  .codes { margin-top: 10px; padding: 10px 12px; border: 1px dashed var(--line); border-radius: 10px; background: var(--bg); }
+  .codes .row { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+  .codes pre { margin: 8px 0 0; font: 12px/1.5 ui-monospace, Consolas, Menlo, monospace; white-space: pre-wrap; color: var(--muted); max-height: 0; overflow: hidden; transition: max-height .2s; }
+  .codes.open pre { max-height: 400px; }
   footer { margin-top: 40px; color: var(--muted); font-size: 13px; border-top: 1px solid var(--line); padding-top: 14px; }
   ol.phases { padding-left: 0; list-style: none; counter-reset: ph; margin: 0; }
   ol.phases > li { position: relative; padding-left: 44px; margin-top: 14px; }
@@ -439,7 +444,7 @@
     </div>
 
     <div class="card">
-      <div class="order-head"><h3>Order 2 · Floor insulation and fixings · Toolstation <span class="progress" data-progress-for="o2"></span></h3><span class="total">£320.05</span></div>
+      <div class="order-head"><h3>Order 2 · Floor insulation and fixings · Toolstation <span class="progress" data-progress-for="o2"></span></h3><span class="total">£320.04</span></div>
       <p class="small">Free delivery over £40. The PIR ships direct from the supplier in about 4 working days; everything else is next day. Nearest branch for collection is Poole, 10 Yarrow Road BH12 4QY.</p>
       <div class="tablewrap"><table data-group="o2">
         <thead><tr><th></th><th>Item</th><th class="num">Qty</th><th class="num">Each</th><th class="num">Total</th></tr></thead>
@@ -449,13 +454,22 @@
           <tr><td><input type="checkbox" data-key="o2c"></td><td><a href="https://www.toolstation.com/heavy-duty-angle-bracket/p15638" target="_blank" rel="noopener">Heavy duty angle bracket 60×40×60, pack of 10</a><br><span class="small">24 needed, joist ends to block wall.</span></td><td class="num">3</td><td class="num">£9.99</td><td class="num">£29.97</td></tr>
           <tr><td><input type="checkbox" data-key="o2d"></td><td><a href="https://www.toolstation.com/screws-fixings/masonry-screws/c856" target="_blank" rel="noopener">Masonry screws 7.5×72, pack of 10</a><br><span class="small">Brackets into block. 6 mm drill bit.</span></td><td class="num">3</td><td class="num">£1.49</td><td class="num">£4.47</td></tr>
           <tr><td><input type="checkbox" data-key="o2e"></td><td><a href="https://www.toolstation.com/single-thread-countersunk-pozi-screw/p37313" target="_blank" rel="noopener">Wood screws 5×30, box of 200</a><br><span class="small">Brackets into joists.</span></td><td class="num">1</td><td class="num">£4.49</td><td class="num">£4.49</td></tr>
-          <tr><td><input type="checkbox" data-key="o2f"></td><td><a href="https://www.toolstation.com/screws-fixings/wood-screws/c852?diameter_mm=5mm&amp;ts_length=60mm" target="_blank" rel="noopener">Reisser Cutter 5×60 screws, box of 200</a><br><span class="small">Deck to joists.</span></td><td class="num">1</td><td class="num">£8.99</td><td class="num">£8.99</td></tr>
+          <tr><td><input type="checkbox" data-key="o2f"></td><td><a href="https://www.toolstation.com/ff-single-thread-countersunk-multipurpose-screws/p21467" target="_blank" rel="noopener">F&amp;F countersunk wood screws 5×60, box of 100</a><br><span class="small">Deck to joists. Two boxes. The Reisser Cutter 200-pack is collection only at the moment.</span></td><td class="num">2</td><td class="num">£4.49</td><td class="num">£8.98</td></tr>
           <tr><td><input type="checkbox" data-key="o2g"></td><td><a href="https://www.toolstation.com/polythene-jointing-tape/p52536" target="_blank" rel="noopener">Polythene jointing tape 50 mm × 33 m</a><br><span class="small">DPM upstand and any patches.</span></td><td class="num">1</td><td class="num">£6.99</td><td class="num">£6.99</td></tr>
           <tr><td><input type="checkbox" data-key="o2h"></td><td><a href="https://www.toolstation.com/5-minute-polyurethane-wood-glue/p93568" target="_blank" rel="noopener">Everbuild 5 Minute PU wood glue, 750 g</a><br><span class="small">Every tongue and groove.</span></td><td class="num">1</td><td class="num">£18.99</td><td class="num">£18.99</td></tr>
           <tr><td><input type="checkbox" data-key="o2i"></td><td><a href="https://www.toolstation.com/ct1-adhesive-sealant/p85802" target="_blank" rel="noopener">CT1 sealant, 290 ml</a><br><span class="small">Seal the DPM where pipes pass through.</span></td><td class="num">1</td><td class="num">£13.80</td><td class="num">£13.80</td></tr>
-          <tr class="total"><td></td><td>Order 2 total, delivered</td><td></td><td></td><td class="num">£320.05</td></tr>
+          <tr class="total"><td></td><td>Order 2 total, delivered</td><td></td><td></td><td class="num">£320.04</td></tr>
         </tbody>
       </table></div>
+      <div class="codes" data-shop="toolstation" data-codes="AM004,4
+78864,1
+15638,3
+12879,3
+37313,1
+21467,2
+52536,1
+93568,1
+85802,1"></div>
     </div>
 
     <div class="card">
@@ -498,6 +512,19 @@
           <tr class="total"><td></td><td>Order 4 total, delivered</td><td></td><td></td><td class="num">£166.84</td></tr>
         </tbody>
       </table></div>
+      <div class="codes" data-shop="toolstation" data-codes="94050,1
+47722,1
+99304,1
+28800,1
+81953,2
+58804,1
+30727,1
+AE940,3
+AE978,1
+44521,1
+12212,1
+65924,1
+AC659,1"></div>
     </div>
     <div class="card">
       <div class="order-head"><h3>Order 6 · Workshop sink and connections · Adexa plus Screwfix <span class="progress" data-progress-for="o6"></span></h3><span class="total">£240.65</span></div>
@@ -509,10 +536,10 @@
           <tr><td><input type="checkbox" data-key="o6b"></td><td><a href="https://adexa.co.uk/Stainless-Steel-Furniture-20/Sink-Units-with-1-Bowl-72/Sink-Accessories-350" target="_blank" rel="noopener">Adexa sink strainer waste</a><br><span class="small">Buy with the sink so it matches the bowl outlet.</span></td><td class="num">1</td><td class="num">£11.52</td><td class="num">£11.52</td></tr>
           <tr><td><input type="checkbox" data-key="o6c"></td><td><a href="https://www.screwfix.com/p/single-lever-mono-mixer-kitchen-tap-chrome/9192t" target="_blank" rel="noopener">Single lever mono mixer tap, chrome</a><br><span class="small">Single hole fits the commercial tap hole. Connect the cold tail, blank the hot tail.</span></td><td class="num">1</td><td class="num">£28.99</td><td class="num">£28.99</td></tr>
           <tr><td><input type="checkbox" data-key="o6d"></td><td><a href="https://www.screwfix.com/p/mcalpine-tubular-p-trap-white-40mm/75915" target="_blank" rel="noopener">McAlpine tubular P trap 40 mm</a></td><td class="num">1</td><td class="num">£9.00</td><td class="num">£9.00</td></tr>
-          <tr><td><input type="checkbox" data-key="o6e"></td><td><a href="https://www.screwfix.com/c/heating-plumbing/pipe/cat831500?brand=jg_speedfit&amp;productdiameter=15_mm" target="_blank" rel="noopener">JG Speedfit 15 mm barrier pipe, 3 m</a><br><span class="small">From the isolating valve to the tap. Copper is about £8 more if you prefer it.</span></td><td class="num">1</td><td class="num">£6.39</td><td class="num">£6.39</td></tr>
+          <tr><td><input type="checkbox" data-key="o6e"></td><td><a href="https://www.screwfix.com/p/jg-speedfit-15bpex-41640-push-fit-pe-x-pipe-15mm-x-3m/46140" target="_blank" rel="noopener">JG Speedfit 15 mm barrier pipe, 3 m</a><br><span class="small">From the isolating valve to the tap. Collection only at Screwfix Ferndown, so collect this order or pick the pipe up separately. Copper is about £8 more if you prefer it.</span></td><td class="num">1</td><td class="num">£6.39</td><td class="num">£6.39</td></tr>
           <tr><td><input type="checkbox" data-key="o6f"></td><td><a href="https://www.screwfix.com/p/jg-speedfit-plastic-push-fit-equal-90-elbow-15mm/97179" target="_blank" rel="noopener">JG Speedfit 15 mm elbow</a></td><td class="num">2</td><td class="num">£2.55</td><td class="num">£5.10</td></tr>
-          <tr><td><input type="checkbox" data-key="o6g"></td><td><a href="https://www.screwfix.com/c/heating-plumbing/tap-connectors/cat7240041" target="_blank" rel="noopener">Flexible tap connector 15 mm × ½", straight</a><br><span class="small">Only needed if the tap's own tails do not reach.</span></td><td class="num">1</td><td class="num">£3.74</td><td class="num">£3.74</td></tr>
-          <tr><td><input type="checkbox" data-key="o6h"></td><td><a href="https://www.screwfix.com/c/heating-plumbing/pipe-clips/cat831642?productdiameter=15_mm" target="_blank" rel="noopener">Talon 15 mm pipe clips, 20 pack</a></td><td class="num">1</td><td class="num">£3.18</td><td class="num">£3.18</td></tr>
+          <tr><td><input type="checkbox" data-key="o6g"></td><td><a href="https://www.screwfix.com/p/flomasta-brass-compression-straight-tap-connector-15mm-x-1-2-/58294" target="_blank" rel="noopener">Flomasta compression straight tap connector 15 mm × ½"</a><br><span class="small">Only needed if the tap's own tails do not reach.</span></td><td class="num">1</td><td class="num">£3.74</td><td class="num">£3.74</td></tr>
+          <tr><td><input type="checkbox" data-key="o6h"></td><td><a href="https://www.screwfix.com/p/talon-15mm-hinge-clips-white-20-pack/65456" target="_blank" rel="noopener">Talon 15 mm hinge clips, 20 pack</a></td><td class="num">1</td><td class="num">£3.18</td><td class="num">£3.18</td></tr>
           <tr><td><input type="checkbox" data-key="o6i"></td><td><a href="https://www.screwfix.com/p/floplast-solvent-weld-waste-pipe-white-40mm-x-3m/44310" target="_blank" rel="noopener">FloPlast 40 mm solvent-weld waste pipe, 3 m</a><br><span class="small">Buy a second length if the drain is more than 2.5 m from the sink.</span></td><td class="num">1</td><td class="num">£7.28</td><td class="num">£7.28</td></tr>
           <tr><td><input type="checkbox" data-key="o6j"></td><td><a href="https://www.screwfix.com/p/floplast-bends-90-white-40mm-5-pack/90596" target="_blank" rel="noopener">FloPlast 40 mm 90° bends, 5 pack</a></td><td class="num">1</td><td class="num">£6.09</td><td class="num">£6.09</td></tr>
           <tr><td><input type="checkbox" data-key="o6k"></td><td><a href="https://www.screwfix.com/p/floplast-sc250-solvent-cement-250ml/14295" target="_blank" rel="noopener">FloPlast solvent cement, 250 ml</a></td><td class="num">1</td><td class="num">£7.98</td><td class="num">£7.98</td></tr>
@@ -521,6 +548,16 @@
           <tr class="total"><td></td><td>Order 6 total, delivered</td><td></td><td></td><td class="num">£240.65</td></tr>
         </tbody>
       </table></div>
+      <div class="codes" data-shop="screwfix" data-codes="9192T,1
+75915,1
+46140,1
+97179,2
+58294,1
+65456,1
+44310,1
+90596,1
+14295,1
+48555,1"></div>
       <p class="small"><strong>The other three set-ups compared.</strong> A stainless inset sink in a 600 mm flat-pack kitchen base with a worktop comes to about £215, only £25 less, and the chipboard carcass will not survive a wet garage floor. A ceramic Belfast sink on the <a href="https://www.toolstation.com/kitchen-kit-belfast-sink-base-kitchen-cabinet-flatpack/pAH316" target="_blank" rel="noopener">Toolstation £58.49 Belfast base</a> with a <a href="https://www.screwfix.com/p/pegler-pb50-hose-union-bib-tap-15mm-x/6263v" target="_blank" rel="noopener">Pegler hose-union bib tap</a> is about £285 and is the bombproof choice if you want to stand a bucket in it, using the <a href="https://www.britishbathroomcompany.co.uk/reginox-belfast-ceramic-sink-595-inc-waste-p10090" target="_blank" rel="noopener">Reginox 595 mm sink with waste at £195.83</a>. Plastic laundry tubs exist on Amazon at roughly £100 to £150 but no UK price could be verified and they arrive with US-pattern fittings.</p>
     </div>
     <div class="card">
@@ -536,6 +573,10 @@
           <tr class="total"><td></td><td>Order 5 total, delivered</td><td></td><td></td><td class="num">£77.91</td></tr>
         </tbody>
       </table></div>
+      <div class="codes" data-shop="screwfix" data-codes="800RE,6
+62530,1
+18232,1
+14434,1"></div>
       <p class="small">Sockets, back boxes, cable and the RCBO are best left to the electrician to supply so the certificate covers them. For reference: a white twin socket is about £2.40, a 35 mm dry-lining box £1.20, and a 50 m drum of 2.5 mm twin and earth <a href="https://www.screwfix.com/p/prysmian-6242y-grey-2-5mm-twin-earth-cable-50m-drum/83956" target="_blank" rel="noopener">£56.39</a>.</p>
     </div>
   </section>
@@ -650,6 +691,34 @@
     });
   }
   progress();
+
+  // Quick-order code lists: one "code,qty" per line, copy to clipboard for the retailer's quick order box.
+  var SHOPS = {
+    toolstation: { name: 'Toolstation', url: '', hint: '' },
+    screwfix:    { name: 'Screwfix',    url: '', hint: '' }
+  };
+  document.querySelectorAll('.codes[data-codes]').forEach(function (box) {
+    var shop = SHOPS[box.getAttribute('data-shop')] || { name: 'the shop', url: '', hint: '' };
+    var lines = box.getAttribute('data-codes').split('\n').map(function (l) { return l.trim(); }).filter(Boolean);
+    var row = document.createElement('div'); row.className = 'row';
+    var copy = document.createElement('button'); copy.className = 'btn'; copy.type = 'button';
+    copy.textContent = 'Copy ' + lines.length + ' product codes';
+    var show = document.createElement('button'); show.className = 'btn'; show.type = 'button'; show.textContent = 'Show codes';
+    var note = document.createElement('span'); note.className = 'small';
+    note.textContent = shop.hint || (shop.name + ' product codes with quantities, one per line, to search or paste on their site.');
+    row.appendChild(copy); row.appendChild(show);
+    if (shop.url) { var go = document.createElement('a'); go.className = 'btn primary'; go.href = shop.url; go.target = '_blank'; go.rel = 'noopener'; go.textContent = 'Open ' + shop.name + ' quick order'; row.appendChild(go); }
+    row.appendChild(note);
+    var pre = document.createElement('pre'); pre.textContent = lines.join('\n');
+    box.appendChild(row); box.appendChild(pre);
+    show.addEventListener('click', function () { box.classList.toggle('open'); show.textContent = box.classList.contains('open') ? 'Hide codes' : 'Show codes'; });
+    copy.addEventListener('click', function () {
+      var txt = lines.join('\n');
+      function done(ok) { copy.textContent = ok ? 'Copied' : 'Copy failed, use Show codes'; setTimeout(function () { copy.textContent = 'Copy ' + lines.length + ' product codes'; }, 2500); }
+      if (navigator.clipboard && navigator.clipboard.writeText) { navigator.clipboard.writeText(txt).then(function () { done(true); }, function () { done(false); }); }
+      else { try { var ta = document.createElement('textarea'); ta.value = txt; document.body.appendChild(ta); ta.select(); document.execCommand('copy'); document.body.removeChild(ta); done(true); } catch (e) { done(false); } }
+    });
+  });
 
   var reset = document.getElementById('reset');
   if (reset) reset.addEventListener('click', function () {
