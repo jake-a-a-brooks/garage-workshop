@@ -1,0 +1,159 @@
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 760 959' width='760' height='959' role='img' aria-label='Workshop floor plan'>
+<rect width='760' height='959' fill='#fbfaf7'/>
+<defs><marker id='arr' viewBox='0 0 10 10' refX='9' refY='5' markerWidth='7' markerHeight='7' orient='auto'><path d='M0,0 L10,5 L0,10 z' fill='#7a5a12'/></marker></defs>
+<text x='150.0' y='24.0' font-size='15' fill='#1f2a30' text-anchor='start' font-weight='bold' font-family='-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif'>Garage workshop floor plan</text>
+<text x='150.0' y='40.0' font-size='10' fill='#5b6770' text-anchor='start' font-weight='normal' font-family='-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif'>Plan view, dimensions in cm as measured 9 Sep 2026. Walls drawn 10 cm thick for clarity.</text>
+<rect x='194.0' y='829.6' width='432.0' height='16.0' fill='#3b464d' stroke='none' stroke-width='0' />
+<rect x='194.0' y='100.0' width='16.0' height='729.6' fill='#3b464d' stroke='none' stroke-width='0' />
+<rect x='610.0' y='165.6' width='16.0' height='664.0' fill='#3b464d' stroke='none' stroke-width='0' />
+<rect x='592.4' y='740.0' width='17.6' height='33.6' fill='#3b464d' stroke='none' stroke-width='0' />
+<rect x='592.4' y='413.6' width='17.6' height='33.6' fill='#3b464d' stroke='none' stroke-width='0' />
+<rect x='210.0' y='100.0' width='416.0' height='65.6' fill='#c9c1b2' stroke='none' stroke-width='0' />
+<rect x='210.0' y='100.0' width='136.0' height='65.6' fill='#fbfaf7' stroke='none' stroke-width='0' />
+<rect x='522.0' y='136.8' width='80.0' height='28.8' fill='#fbfaf7' stroke='none' stroke-width='0' />
+<line x1='214.8' y1='130.4' x2='346.0' y2='130.4' stroke='#1f2a30' stroke-width='3' />
+<rect x='357.2' y='124.0' width='94.4' height='12.8' fill='#9fd3ea' stroke='#1f2a30' stroke-width='0.8' />
+<rect x='610.0' y='557.6' width='16.0' height='96.0' fill='#9fd3ea' stroke='#1f2a30' stroke-width='0.8' />
+<rect x='192.4' y='589.6' width='18.4' height='156.8' fill='#fbfaf7' stroke='none' stroke-width='0' />
+<line x1='210.0' y1='746.4' x2='210.0' y2='589.6' stroke='#1f2a30' stroke-width='0.8' stroke-dasharray='3 3' />
+<path d='M 194.0 746.4 A 144.0 144.0 0 0 0 50.0 602.4' fill='none' stroke='#5b6770' stroke-width='0.8' stroke-dasharray='3 3'/>
+<line x1='194.0' y1='746.4' x2='53.2' y2='717.6' stroke='#5b6770' stroke-width='0.8' />
+<text x='101.2' y='650.4' font-size='10' fill='#5b6770' text-anchor='middle' font-weight='normal' font-family='-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif' transform='rotate(-90 101.2 650.4)'>door to house</text>
+<path d='M 342.8 109.6 A 128.0 128.0 0 0 0 214.8 237.6' fill='none' stroke='#5b6770' stroke-width='0.8' stroke-dasharray='3 3'/>
+<line x1='214.8' y1='109.6' x2='230.4' y2='236.6' stroke='#1f2a30' stroke-width='2.2' />
+<text x='258.0' y='224.8' font-size='10' fill='#5b6770' text-anchor='start' font-weight='normal' font-family='-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif'>garden door swings in and opens to about 83°</text>
+<text x='258.0' y='240.8' font-size='10' fill='#5b6770' text-anchor='start' font-weight='normal' font-family='-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif'>with battens starting 20 cm from the back wall</text>
+<rect x='592.4' y='773.6' width='17.6' height='56.0' fill='#0e6e66' stroke='none' stroke-width='0' opacity='0.55'/>
+<rect x='592.4' y='653.6' width='17.6' height='86.4' fill='#0e6e66' stroke='none' stroke-width='0' opacity='0.55'/>
+<rect x='592.4' y='447.2' width='17.6' height='110.4' fill='#0e6e66' stroke='none' stroke-width='0' opacity='0.55'/>
+<rect x='592.4' y='165.6' width='17.6' height='248.0' fill='#0e6e66' stroke='none' stroke-width='0' opacity='0.55'/>
+<rect x='210.0' y='746.4' width='13.2' height='83.2' fill='#0e6e66' stroke='none' stroke-width='0' opacity='0.55'/>
+<rect x='210.0' y='197.6' width='13.2' height='392.0' fill='#0e6e66' stroke='none' stroke-width='0' opacity='0.55'/>
+<rect x='210.0' y='130.4' width='2.4' height='67.2' fill='#4fc0b4' stroke='none' stroke-width='0' />
+<text x='227.6' y='178.4' font-size='10' fill='#0e6e66' text-anchor='start' font-weight='normal' font-family='-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif'>board direct to block, 20 cm plus the reveal</text>
+<line x1='210.8' y1='821.6' x2='609.2' y2='821.6' stroke='#b98a2a' stroke-width='3.0' opacity='0.5'/>
+<line x1='210.8' y1='757.6' x2='591.6' y2='757.6' stroke='#b98a2a' stroke-width='3.0' opacity='0.5'/>
+<line x1='210.8' y1='693.6' x2='609.2' y2='693.6' stroke='#b98a2a' stroke-width='3.0' opacity='0.5'/>
+<line x1='210.8' y1='629.6' x2='609.2' y2='629.6' stroke='#b98a2a' stroke-width='3.0' opacity='0.5'/>
+<line x1='210.8' y1='565.6' x2='609.2' y2='565.6' stroke='#b98a2a' stroke-width='3.0' opacity='0.5'/>
+<line x1='210.8' y1='501.6' x2='609.2' y2='501.6' stroke='#b98a2a' stroke-width='3.0' opacity='0.5'/>
+<line x1='210.8' y1='437.6' x2='591.6' y2='437.6' stroke='#b98a2a' stroke-width='3.0' opacity='0.5'/>
+<line x1='210.8' y1='373.6' x2='609.2' y2='373.6' stroke='#b98a2a' stroke-width='3.0' opacity='0.5'/>
+<line x1='210.8' y1='309.6' x2='609.2' y2='309.6' stroke='#b98a2a' stroke-width='3.0' opacity='0.5'/>
+<line x1='210.8' y1='245.6' x2='609.2' y2='245.6' stroke='#b98a2a' stroke-width='3.0' opacity='0.5'/>
+<line x1='210.8' y1='181.6' x2='609.2' y2='181.6' stroke='#b98a2a' stroke-width='3.0' opacity='0.5'/>
+<line x1='211.6' y1='138.4' x2='344.4' y2='138.4' stroke='#b98a2a' stroke-width='3.0' opacity='0.5'/>
+<text x='410.0' y='791.2' font-size='10' fill='#7a5a12' text-anchor='middle' font-weight='normal' font-family='-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif'>11 joists 47×200 across the width at 400 c/c. Packers 5 mm at this end...</text>
+<text x='306.0' y='199.2' font-size='10' fill='#7a5a12' text-anchor='start' font-weight='normal' font-family='-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif'>...rising to 55 mm at this end</text>
+<line x1='410.0' y1='733.6' x2='410.0' y2='285.6' stroke='#7a5a12' stroke-width='1' marker-end='url(#arr)' opacity='0.7'/>
+<text x='416.0' y='509.6' font-size='10' fill='#7a5a12' text-anchor='start' font-weight='normal' font-family='-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif' transform='rotate(-90 416.0 509.6)'>slab falls this way, about 50 mm</text>
+<circle cx='210.0' cy='322.4' r='4' fill='#b3261e' stroke='#fbfaf7' stroke-width='1.2'/>
+<text x='222.0' y='326.4' font-size='9.5' fill='#b3261e' text-anchor='start' font-weight='normal' font-family='-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif'>cold feed + isolator, 30 cm up (raise to 40+)</text>
+<circle cx='210.0' cy='429.6' r='4' fill='#7a5a12' stroke='#fbfaf7' stroke-width='1.2'/>
+<text x='222.0' y='433.6' font-size='9.5' fill='#7a5a12' text-anchor='start' font-weight='normal' font-family='-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif'>existing socket</text>
+<circle cx='610.0' cy='349.6' r='4' fill='#7a5a12' stroke='#fbfaf7' stroke-width='1.2'/>
+<text x='596.0' y='353.6' font-size='9.5' fill='#7a5a12' text-anchor='end' font-weight='normal' font-family='-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif'>existing socket</text>
+<circle cx='610.0' cy='380.0' r='4' fill='#b3261e' stroke='#fbfaf7' stroke-width='1.2'/>
+<text x='596.0' y='384.0' font-size='9.5' fill='#b3261e' text-anchor='end' font-weight='normal' font-family='-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif'>old pipe hole</text>
+<circle cx='610.0' cy='525.6' r='4' fill='#7a5a12' stroke='#fbfaf7' stroke-width='1.2'/>
+<text x='596.0' y='529.6' font-size='9.5' fill='#7a5a12' text-anchor='end' font-weight='normal' font-family='-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif'>existing socket</text>
+<circle cx='610.0' cy='592.8' r='4' fill='#0e6e66' stroke='#fbfaf7' stroke-width='1.2'/>
+<text x='596.0' y='596.8' font-size='9.5' fill='#0e6e66' text-anchor='end' font-weight='normal' font-family='-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif'>existing sink waste, keep</text>
+<circle cx='610.0' cy='658.4' r='4' fill='#b3261e' stroke='#fbfaf7' stroke-width='1.2'/>
+<text x='596.0' y='662.4' font-size='9.5' fill='#b3261e' text-anchor='end' font-weight='normal' font-family='-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif'>old pipe hole</text>
+<rect x='496.4' y='512.8' width='96.0' height='160.0' fill='none' stroke='#0e6e66' stroke-width='1.6' stroke-dasharray='5 3'/>
+<rect x='520.4' y='544.8' width='52.8' height='96.0' fill='none' stroke='#0e6e66' stroke-width='1.0' />
+<text x='544.4' y='493.6' font-size='10' fill='#0e6e66' text-anchor='middle' font-weight='normal' font-family='-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif'>sink 1000×600</text>
+<circle cx='342.8' cy='719.2' r='5' fill='none' stroke='#1f2a30' stroke-width='1.2'/>
+<circle cx='342.8' cy='719.2' r='1.5' fill='#1f2a30'/>
+<circle cx='342.8' cy='498.4' r='5' fill='none' stroke='#1f2a30' stroke-width='1.2'/>
+<circle cx='342.8' cy='498.4' r='1.5' fill='#1f2a30'/>
+<circle cx='342.8' cy='276.0' r='5' fill='none' stroke='#1f2a30' stroke-width='1.2'/>
+<circle cx='342.8' cy='276.0' r='1.5' fill='#1f2a30'/>
+<circle cx='477.2' cy='719.2' r='5' fill='none' stroke='#1f2a30' stroke-width='1.2'/>
+<circle cx='477.2' cy='719.2' r='1.5' fill='#1f2a30'/>
+<circle cx='477.2' cy='498.4' r='5' fill='none' stroke='#1f2a30' stroke-width='1.2'/>
+<circle cx='477.2' cy='498.4' r='1.5' fill='#1f2a30'/>
+<circle cx='477.2' cy='276.0' r='5' fill='none' stroke='#1f2a30' stroke-width='1.2'/>
+<circle cx='477.2' cy='276.0' r='1.5' fill='#1f2a30'/>
+<text x='342.8' y='701.6' font-size='9.5' fill='#5b6770' text-anchor='middle' font-weight='normal' font-family='-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif'>6 downlights, 2 rows of 3</text>
+<rect x='473.0' y='401.4' width='18' height='18' fill='none' stroke='#1f2a30' stroke-width='1.2'/>
+<line x1='473.0' y1='401.4' x2='491.0' y2='419.4' stroke='#1f2a30' stroke-width='1'/>
+<line x1='491.0' y1='401.4' x2='473.0' y2='419.4' stroke='#1f2a30' stroke-width='1'/>
+<text x='495.0' y='414.4' font-size='9.5' fill='#5b6770' text-anchor='start' font-weight='normal' font-family='-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif'>extractor</text>
+<text x='410.0' y='88.0' font-size='10.5' fill='#1f2a30' text-anchor='middle' font-weight='bold' font-family='-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif'>BACK WALL  (plastered: garden door, window, recess)</text>
+<text x='410.0' y='853.6' font-size='10.5' fill='#1f2a30' text-anchor='middle' font-weight='bold' font-family='-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif'>FRONT WALL  (plastered)</text>
+<text x='128.0' y='349.6' font-size='10.5' fill='#1f2a30' text-anchor='middle' font-weight='bold' font-family='-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif' transform='rotate(-90 128.0 349.6)'>INTERNAL WALL  (block, house side)</text>
+<text x='690.0' y='301.6' font-size='10.5' fill='#1f2a30' text-anchor='middle' font-weight='bold' font-family='-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif' transform='rotate(90 690.0 301.6)'>OUTSIDE WALL  (block, two piers)</text>
+<text x='277.2' y='116.0' font-size='9.5' fill='#1f2a30' text-anchor='middle' font-weight='normal' font-family='-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif'>garden door 85</text>
+<text x='403.6' y='116.0' font-size='9.5' fill='#1f2a30' text-anchor='middle' font-weight='normal' font-family='-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif'>window 59, sill 133</text>
+<text x='562.0' y='154.4' font-size='9.5' fill='#1f2a30' text-anchor='middle' font-weight='normal' font-family='-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif'>recess</text>
+<text x='634.0' y='608.6' font-size='9.5' fill='#1f2a30' text-anchor='start' font-weight='normal' font-family='-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif' transform='rotate(90 634.0 608.6)'>window 60×60</text>
+<text x='601.2' y='759.8' font-size='8' fill='#fbfaf7' text-anchor='middle' font-weight='normal' font-family='-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif'>pier</text>
+<text x='601.2' y='433.4' font-size='8' fill='#fbfaf7' text-anchor='middle' font-weight='normal' font-family='-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif'>pier</text>
+<line x1='210.0' y1='74.0' x2='610.0' y2='74.0' stroke='#5b6770' stroke-width='0.8'/>
+<line x1='210.0' y1='70.0' x2='210.0' y2='78.0' stroke='#5b6770' stroke-width='0.8'/>
+<line x1='610.0' y1='70.0' x2='610.0' y2='78.0' stroke='#5b6770' stroke-width='0.8'/>
+<text x='410.0' y='70.0' font-size='10' fill='#5b6770' text-anchor='middle' font-weight='normal' font-family='-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif'>250 wall to wall</text>
+<line x1='150.0' y1='829.6' x2='150.0' y2='165.6' stroke='#5b6770' stroke-width='0.8'/>
+<line x1='146.0' y1='829.6' x2='154.0' y2='829.6' stroke='#5b6770' stroke-width='0.8'/>
+<line x1='146.0' y1='165.6' x2='154.0' y2='165.6' stroke='#5b6770' stroke-width='0.8'/>
+<text x='146.0' y='497.6' font-size='10' fill='#5b6770' text-anchor='middle' font-weight='normal' font-family='-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif' transform='rotate(-90 146.0 497.6)'>415 front face to back face</text>
+<line x1='150.0' y1='165.6' x2='150.0' y2='130.4' stroke='#5b6770' stroke-width='0.8'/>
+<line x1='146.0' y1='165.6' x2='154.0' y2='165.6' stroke='#5b6770' stroke-width='0.8'/>
+<line x1='146.0' y1='130.4' x2='154.0' y2='130.4' stroke='#5b6770' stroke-width='0.8'/>
+<text x='146.0' y='148.0' font-size='10' fill='#5b6770' text-anchor='middle' font-weight='normal' font-family='-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif' transform='rotate(-90 146.0 148.0)'>22</text>
+<line x1='150.0' y1='130.4' x2='150.0' y2='109.6' stroke='#5b6770' stroke-width='0.8'/>
+<line x1='146.0' y1='130.4' x2='154.0' y2='130.4' stroke='#5b6770' stroke-width='0.8'/>
+<line x1='146.0' y1='109.6' x2='154.0' y2='109.6' stroke='#5b6770' stroke-width='0.8'/>
+<text x='146.0' y='120.0' font-size='10' fill='#5b6770' text-anchor='middle' font-weight='normal' font-family='-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif' transform='rotate(-90 146.0 120.0)'>13</text>
+<line x1='170.0' y1='829.6' x2='170.0' y2='746.4' stroke='#5b6770' stroke-width='0.8'/>
+<line x1='166.0' y1='829.6' x2='174.0' y2='829.6' stroke='#5b6770' stroke-width='0.8'/>
+<line x1='166.0' y1='746.4' x2='174.0' y2='746.4' stroke='#5b6770' stroke-width='0.8'/>
+<text x='166.0' y='788.0' font-size='10' fill='#5b6770' text-anchor='middle' font-weight='normal' font-family='-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif' transform='rotate(-90 166.0 788.0)'>52</text>
+<line x1='170.0' y1='746.4' x2='170.0' y2='589.6' stroke='#5b6770' stroke-width='0.8'/>
+<line x1='166.0' y1='746.4' x2='174.0' y2='746.4' stroke='#5b6770' stroke-width='0.8'/>
+<line x1='166.0' y1='589.6' x2='174.0' y2='589.6' stroke='#5b6770' stroke-width='0.8'/>
+<text x='166.0' y='668.0' font-size='10' fill='#5b6770' text-anchor='middle' font-weight='normal' font-family='-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif' transform='rotate(-90 166.0 668.0)'>door 98</text>
+<line x1='170.0' y1='589.6' x2='170.0' y2='109.6' stroke='#5b6770' stroke-width='0.8'/>
+<line x1='166.0' y1='589.6' x2='174.0' y2='589.6' stroke='#5b6770' stroke-width='0.8'/>
+<line x1='166.0' y1='109.6' x2='174.0' y2='109.6' stroke='#5b6770' stroke-width='0.8'/>
+<text x='166.0' y='349.6' font-size='10' fill='#5b6770' text-anchor='middle' font-weight='normal' font-family='-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif' transform='rotate(-90 166.0 349.6)'>300 to garden door</text>
+<line x1='650.0' y1='829.6' x2='650.0' y2='773.6' stroke='#5b6770' stroke-width='0.8'/>
+<line x1='646.0' y1='829.6' x2='654.0' y2='829.6' stroke='#5b6770' stroke-width='0.8'/>
+<line x1='646.0' y1='773.6' x2='654.0' y2='773.6' stroke='#5b6770' stroke-width='0.8'/>
+<text x='654.0' y='801.6' font-size='10' fill='#5b6770' text-anchor='middle' font-weight='normal' font-family='-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif' transform='rotate(90 654.0 801.6)'>35</text>
+<line x1='650.0' y1='773.6' x2='650.0' y2='740.0' stroke='#5b6770' stroke-width='0.8'/>
+<line x1='646.0' y1='773.6' x2='654.0' y2='773.6' stroke='#5b6770' stroke-width='0.8'/>
+<line x1='646.0' y1='740.0' x2='654.0' y2='740.0' stroke='#5b6770' stroke-width='0.8'/>
+<text x='654.0' y='756.8' font-size='10' fill='#5b6770' text-anchor='middle' font-weight='normal' font-family='-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif' transform='rotate(90 654.0 756.8)'>21</text>
+<line x1='650.0' y1='740.0' x2='650.0' y2='447.2' stroke='#5b6770' stroke-width='0.8'/>
+<line x1='646.0' y1='740.0' x2='654.0' y2='740.0' stroke='#5b6770' stroke-width='0.8'/>
+<line x1='646.0' y1='447.2' x2='654.0' y2='447.2' stroke='#5b6770' stroke-width='0.8'/>
+<text x='654.0' y='593.6' font-size='10' fill='#5b6770' text-anchor='middle' font-weight='normal' font-family='-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif' transform='rotate(90 654.0 593.6)'>183</text>
+<line x1='650.0' y1='447.2' x2='650.0' y2='413.6' stroke='#5b6770' stroke-width='0.8'/>
+<line x1='646.0' y1='447.2' x2='654.0' y2='447.2' stroke='#5b6770' stroke-width='0.8'/>
+<line x1='646.0' y1='413.6' x2='654.0' y2='413.6' stroke='#5b6770' stroke-width='0.8'/>
+<text x='654.0' y='430.4' font-size='10' fill='#5b6770' text-anchor='middle' font-weight='normal' font-family='-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif' transform='rotate(90 654.0 430.4)'>21</text>
+<line x1='650.0' y1='413.6' x2='650.0' y2='165.6' stroke='#5b6770' stroke-width='0.8'/>
+<line x1='646.0' y1='413.6' x2='654.0' y2='413.6' stroke='#5b6770' stroke-width='0.8'/>
+<line x1='646.0' y1='165.6' x2='654.0' y2='165.6' stroke='#5b6770' stroke-width='0.8'/>
+<text x='654.0' y='289.6' font-size='10' fill='#5b6770' text-anchor='middle' font-weight='normal' font-family='-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif' transform='rotate(90 654.0 289.6)'>155</text>
+<line x1='670.0' y1='829.6' x2='670.0' y2='165.6' stroke='#5b6770' stroke-width='0.8'/>
+<line x1='666.0' y1='829.6' x2='674.0' y2='829.6' stroke='#5b6770' stroke-width='0.8'/>
+<line x1='666.0' y1='165.6' x2='674.0' y2='165.6' stroke='#5b6770' stroke-width='0.8'/>
+<text x='674.0' y='497.6' font-size='10' fill='#5b6770' text-anchor='middle' font-weight='normal' font-family='-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif' transform='rotate(90 674.0 497.6)'>415, piers project 11</text>
+<line x1='210.0' y1='875.6' x2='370.0' y2='875.6' stroke='#1f2a30' stroke-width='2'/>
+<line x1='210.0' y1='871.6' x2='210.0' y2='879.6' stroke='#1f2a30' stroke-width='1'/>
+<line x1='290.0' y1='871.6' x2='290.0' y2='879.6' stroke='#1f2a30' stroke-width='1'/>
+<line x1='370.0' y1='871.6' x2='370.0' y2='879.6' stroke='#1f2a30' stroke-width='1'/>
+<text x='378.0' y='879.6' font-size='10' fill='#1f2a30' text-anchor='start' font-weight='normal' font-family='-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif'>1 m</text>
+<rect x='410.0' y='861.6' width='14' height='9' fill='#0e6e66' opacity='0.8'/>
+<text x='430.0' y='869.6' font-size='9.5' fill='#5b6770' text-anchor='start' font-weight='normal' font-family='-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif'>battened, insulated, boarded wall</text>
+<rect x='410.0' y='875.6' width='14' height='9' fill='#4fc0b4' opacity='0.8'/>
+<text x='430.0' y='883.6' font-size='9.5' fill='#5b6770' text-anchor='start' font-weight='normal' font-family='-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif'>plasterboard direct to block</text>
+<rect x='410.0' y='889.6' width='14' height='9' fill='#b98a2a' opacity='0.8'/>
+<text x='430.0' y='897.6' font-size='9.5' fill='#5b6770' text-anchor='start' font-weight='normal' font-family='-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif'>floor joist or bearer</text>
+<rect x='410.0' y='903.6' width='14' height='9' fill='#0e6e66' opacity='0.8'/>
+<text x='430.0' y='911.6' font-size='9.5' fill='#5b6770' text-anchor='start' font-weight='normal' font-family='-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif'>proposed sink</text>
+</svg>
